@@ -1,5 +1,7 @@
 <h1>New book</h1>
-
+@if (session("success"))
+        {{session("success")}}
+@endif
 <form action="{{ route('books.store') }}" method="post">
     @csrf
     <input type="text" placeholder="title goes here" name='title'>

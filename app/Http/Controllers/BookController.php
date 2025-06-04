@@ -19,19 +19,19 @@ class BookController extends Controller
     public function store(Request $request) {
 
         $validated = $request->validate([
-        'title' => 'required|unique:posts|max:255',
+        'title' => 'required|unique:books|max:255',
         'author' => 'required',
         'released_at' => 'required'
     ]);
 
         $book = Book::create([
-            'title' => $request['title'],
-            'author' => $request['author'],
-            'released_at' => $request['released_at'],
+            'title' => $validated['title'],
+            'author' => $validated['author'],
+            'released_at' => $validated['released_at'],
         ]);
 
 
-        return redirect('/books/' . $book->id);
+        return redirect('/books/' . $book->id)->with("success", "book was created");
     }
 
     public function show($id) {
@@ -45,6 +45,7 @@ class BookController extends Controller
     }
 
     public function update(Request $request, $id) {
+
         $book = Book::find($id);
         $book->update([
             'title' => $request['title'],
@@ -57,6 +58,6 @@ class BookController extends Controller
     public function destroy($id){
         $book = Book::findorfail($id);
         $book->delete();
-        return view('books.index');
+        return redirect('/books/')->with("success", "book was deleted");;
     }
 }
