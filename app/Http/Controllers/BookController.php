@@ -17,11 +17,19 @@ class BookController extends Controller
     }
 
     public function store(Request $request) {
+
+        $validated = $request->validate([
+        'title' => 'required|unique:posts|max:255',
+        'author' => 'required',
+        'released_at' => 'required'
+    ]);
+
         $book = Book::create([
             'title' => $request['title'],
             'author' => $request['author'],
             'released_at' => $request['released_at'],
         ]);
+
 
         return redirect('/books/' . $book->id);
     }
@@ -45,5 +53,10 @@ class BookController extends Controller
         ]);
 
         return redirect('/books/' . $book->id);
+    }
+    public function destroy($id){
+        $book = Book::findorfail($id);
+        $book->delete();
+        return view('books.index');
     }
 }

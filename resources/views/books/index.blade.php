@@ -7,7 +7,11 @@
             <div>
                 <a href="{{ route('books.show', $book->id)}}">Show</a>
                 <a href="{{ route('books.edit', $book->id)}}">Edit</a>
-    
+                <form action="{{ route('books.destroy', $book->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" name="delete">Delete</button>
+                </form>
             </div>
         </li>
     @endforeach
