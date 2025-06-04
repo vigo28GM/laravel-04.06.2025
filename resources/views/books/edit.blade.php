@@ -1,6 +1,6 @@
 <h1>Edit book</h1>
 
-<form action="/books/{{ $Book->id }}/update" method="post">
+<form action="{{ route('books.update', $Book->id) }}" method="post">
     @csrf
     @method('put')
     <input type="text" name="title" placeholder="title goes here" value="{{ $Book->title }}">
