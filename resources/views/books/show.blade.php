@@ -1,4 +1,4 @@
-<h2>{{ $singleBook->title }}</h2>
-<h3>{{ $singleBook->author }}</h3>
-<p>{{ $singleBook->released_at }}</p>
+<h2>{{ $Book->title }}</h2>
+<h3>{{ $Book->author }}</h3>
+<p>{{ $Book->released_at }}</p>
 <a href="/books">All books</a>
