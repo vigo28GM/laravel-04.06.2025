@@ -20,5 +20,11 @@
                 </form>
             </div>
         </li>
+        @if(session('success'))
+    <div class="alert alert-success" style="margin: 10px 0; padding: 10px; background-color: #d4edda; border-left: 5px solid #28a745; color: #155724;">
+        {{ session('success') }}
+    </div>
+@endif
     @endforeach
+    
 </ul>

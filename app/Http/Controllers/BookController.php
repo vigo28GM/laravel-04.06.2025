@@ -53,7 +53,7 @@ class BookController extends Controller
             'released_at' => $request['released_at'],
         ]);
 
-        return redirect('/books/' . $book->id);
+        return redirect('/books/' . $book->id)->with("success", "book was updated");;
     }
     public function destroy($id){
         $book = Book::findorfail($id);
