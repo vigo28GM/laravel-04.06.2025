@@ -1,3 +1,4 @@
+<x-app>
 <h1>New book</h1>
 @if (session("success"))
         {{session("success")}}
@@ -28,3 +29,4 @@
 @endif
 
 </form>
+</x-app>

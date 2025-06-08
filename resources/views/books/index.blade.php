@@ -1,11 +1,10 @@
+<x-app>
 <h1>Books</h1>
 <a href="/books/create">Create a book</a>
 @if (session("success"))
         {{session("success")}}
 @endif
 <ul>
-
-
 
     @foreach($Books as $book)
         <li>
@@ -28,3 +27,4 @@
     @endforeach
     
 </ul>
+</x-app>

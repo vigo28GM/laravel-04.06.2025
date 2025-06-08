@@ -1,3 +1,4 @@
+<x-app>
 <h1>Edit book</h1>
 
 <form action="{{ route('books.update', $Book->id) }}" method="post">
@@ -8,3 +9,4 @@
     <input type="date" name="released_at" placeholder="date goes here" value="{{ $Book->released_at }}">
     <input type="submit" value="Update">
 </form>
+</x-app>
